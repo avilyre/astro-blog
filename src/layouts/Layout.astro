@@ -1,0 +1,34 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import Navbar from "../components/Navbar.astro";
+
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+
+const metatags = {
+  title: title ? `${title} | Astro Blog` : "Astro Blog"
+};
+---
+
+<html lang="pt-BR">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{metatags.title}</title>
+
+		<ViewTransitions />
+	</head>
+	<body class="bg-slate-50">
+    <header>
+			<Navbar />
+		</header>
+		<div class="max-w-[1216px] mx-auto">
+			<slot />
+		</div>
+	</body>
+</html>
