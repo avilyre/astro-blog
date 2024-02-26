@@ -1,0 +1,24 @@
+---
+import { dateFormat } from "../utils";
+import type { Post } from "../@data/posts.interface";
+
+export interface Props extends Post {};
+
+const { title, thumbnail, slug, publishedAt } = Astro.props;
+
+const postURL = `/posts/${slug}`;
+---
+
+<article>
+  <header>
+    <a href={postURL}>
+      <img class="rounded-md" {...thumbnail}>
+    </a>
+    <h5 class="text-slate-700 text-xl font-bold my-4">
+      <a href={postURL}>{title}</a>
+    </h5>
+  </header>
+  <time datetime={publishedAt}>
+    {dateFormat.format(new Date(publishedAt))}
+  </time>
+</article>

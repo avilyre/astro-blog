@@ -1,19 +1,21 @@
 ---
 import type { ComponentProps, HTMLAttributes } from "astro/types";
-import Layout from "./Layout.astro";
+  import Layout from "./Layout.astro";
 
-export interface Props extends ComponentProps<typeof Layout> {
-  thumbnail: HTMLAttributes<"img">;
-  publishedAt: string;
-}
+  export interface Props extends ComponentProps<typeof Layout> {
+    thumbnail: HTMLAttributes<"img">;
+    publishedAt: string;
+  }
 
-const { thumbnail, publishedAt, ...rest } = Astro.props;
+  const { thumbnail, publishedAt, ...rest } = Astro.props;
 ---
 
 <Layout {...rest}>
+  <a href="/" class="text-2xl hover:text-slate-500 text-slate-400 font-bold no-underline mb-8 inline-block">
+    {"<"} Voltar
+  </a>
   <div class="
     text-slate-700
-    px-4
 
     prose-img:aspect-[10/4] prose-img: w-full prose-img:rounded-md prose-img:object-cover
     prose-h1:font-bold prose-h1:text-5xl prose-h1:mb-16
@@ -33,5 +35,5 @@ const { thumbnail, publishedAt, ...rest } = Astro.props;
     </time>
 
     <slot />
-    </div>
+  </div>
 </Layout>

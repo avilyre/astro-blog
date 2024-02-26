@@ -1,9 +1,25 @@
 ---
 import Layout from "../layouts/Layout.astro"
+import HighlightPost from "../components/HighlightPost.astro";
+
+import { posts } from "../@data/posts.ts";
 ---
 
 <Layout title="Início">
+	<div slot="header" class="lg:mt-32 md:mt-16 mt-16 flex flex-col after:gap-4">
+		<h1 class="lg:text-7xl md:text-6xl text-5xl text-slate-800 leading-tight font-bold uppercase">Blog With Astro</h1>
+		<h2 class="lg:text-xl md:text-md text-base text-slate-500 mt-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
+	</div>
+
 	<main>
-		Home
+		<section>
+			<header>
+				<h3 class="leading-tight text-slate-700 font-bold text-3xl mb-8">Posts</h3>
+			</header>
+
+			<div class="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8">
+				{posts.map(post => <HighlightPost {...post} />)}
+			</div>
+		</section>
 	</main>
 </Layout>

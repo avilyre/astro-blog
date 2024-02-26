@@ -7,6 +7,7 @@ thumbnail: "../../../public/posts/lorem-ipsum.png"
 import PostLayout  from "../../layouts/PostLayout.astro";
 
 <PostLayout
+  title={frontmatter.title}
   thumbnail={{ src: frontmatter.thumbnail }}
   publishedAt={frontmatter.publishedAt}
 >

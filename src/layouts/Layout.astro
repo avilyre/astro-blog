@@ -24,10 +24,12 @@ const metatags = {
 		<ViewTransitions />
 	</head>
 	<body class="bg-slate-50">
-    <header class="mb-24">
-			<Navbar />
-		</header>
-		<div class="max-w-[1216px] mx-auto">
+		<div class="max-w-[1216px] mx-auto xl:px-0 px-4">
+			<header class="mb-24">
+				<Navbar />
+				<slot name="header" />
+			</header>
+			
 			<slot />
 		</div>
 	</body>
