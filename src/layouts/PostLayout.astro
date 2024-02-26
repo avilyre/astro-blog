@@ -1,0 +1,37 @@
+---
+import type { ComponentProps, HTMLAttributes } from "astro/types";
+import Layout from "./Layout.astro";
+
+export interface Props extends ComponentProps<typeof Layout> {
+  thumbnail: HTMLAttributes<"img">;
+  publishedAt: string;
+}
+
+const { thumbnail, publishedAt, ...rest } = Astro.props;
+---
+
+<Layout {...rest}>
+  <div class="
+    text-slate-700
+    px-4
+
+    prose-img:aspect-[10/4] prose-img: w-full prose-img:rounded-md prose-img:object-cover
+    prose-h1:font-bold prose-h1:text-5xl prose-h1:mb-16
+    prose-h2:font-bold prose-h2:text-2xl prose-h2:mb-8
+    prose-h3:font-bold prose-h3:text-1xl prose-h3:mb-8
+    prose-p:my-5
+    prose-a:underline
+  ">
+    <img class="mb-8" {...thumbnail} />
+    
+    <time datetime={publishedAt} class="inline-block mb-4">
+      {new Intl.DateTimeFormat("pt-BR", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric"
+      }).format(new Date(publishedAt))}
+    </time>
+
+    <slot />
+    </div>
+</Layout>
