@@ -1,6 +1,5 @@
-import LoremIpsumThumbnail from "../../public/posts/lorem-ipsum.png";
-
-import type { Post } from "./posts.interface";
+import LoremIpsumThumbnail from "@public/posts/lorem-ipsum.png";
+import type { Post } from "@data/posts.interface";
 
 export const posts: Post[] = [
   {
