@@ -18,7 +18,7 @@ import { posts } from "@data/posts.ts";
 			</header>
 
 			<div class="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8">
-				{posts.map(post => <HighlightPost {...post} />)}
+				{posts.map(post => <HighlightPost transition:name="post-thum" {...post} />)}
 			</div>
 		</section>
 	</main>

@@ -24,7 +24,7 @@ import type { ComponentProps, HTMLAttributes } from "astro/types";
     prose-p:my-5
     prose-a:underline
   ">
-    <img class="mb-8" {...thumbnail} />
+    <img transition:name="post-thum" class="mb-8" {...thumbnail} />
     
     <time datetime={publishedAt} class="inline-block mb-4">
       {new Intl.DateTimeFormat("pt-BR", {
